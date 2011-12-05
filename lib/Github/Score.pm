@@ -9,6 +9,54 @@ use URI;
 our $VERSION = '0.001';
 $VERSION = eval $VERSION;
 
+=head1 NAME
+
+Github::Score - Get the usernames and number of commits to a github project to 'score' them
+
+=head1 SYNOPSIS
+
+  use strict;
+  use Github::Score;
+
+  my $gs = Github::Score->new( user => 'arcanez', repo => 'github-score' );
+  my $scores = $gs->scores;
+
+  my $gs = Github::Score->new( url => 'arcanez/github-score' );
+  my $scores = $gs->scores;
+
+  my $gs = Github::Score->new( 'arcanez/github-score' );
+  my $socres = $gs->scores;
+
+=head1 DESCRIPTION
+
+Github::Score is a thin wrapper around the Github API.
+
+It simply returns the committers (contributors) and number of 
+commits (contributions) they have made to a specific github
+project in HASH ref form.
+
+=head1 BUGS
+
+All complex software has bugs lurking in it, and this module is no exception.
+
+=head1 SEE ALSO
+
+http://github-high-scores.heroku.com/ - 'inspiration' for this module
+https://github.com/leereilly/github-high-scores - source for above mentioned
+
+=head1 AUTHOR
+
+Justin Hunter <justin.d.hunter@gmail.com>
+
+=head1 COPYRIGHT AND LICENSE
+
+This software is copyright (c) 2011 by Justin Hunter
+
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
+
+=cut
+
 sub new {
   my $self = shift;
   my @args = @_;
